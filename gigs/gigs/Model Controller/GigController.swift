@@ -20,7 +20,7 @@ class GigController {
     private let baseURL = URL(string: "https://lambdagigapi.herokuapp.com/api")!
     
     func signUp(with user: User, completion: @escaping (Error?) -> Void) {
-        let signUpUrl = baseURL.appendingPathComponent("/users/signup")
+        let signUpUrl = baseURL.appendingPathComponent("users/signup")
         
         var request = URLRequest(url: signUpUrl)
         request.httpMethod = HTTPMethod.post.rawValue

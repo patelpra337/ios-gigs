@@ -38,7 +38,7 @@ class GigsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+         
 
         return cell
     }
@@ -46,6 +46,10 @@ class GigsTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LoginViewModalSegue",
+            let loginVC = segue.destination as? LoginViewController {
+            loginVC.gigController = gigController
+        }
 
     }
 }
