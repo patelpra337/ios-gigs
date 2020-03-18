@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum LoginType {
+    case signUp
+    case signIn
+}
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var signUpLoginSegmented: UISegmentedControl!
@@ -15,12 +20,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpLogInButton: UIButton!
     
+    var gigController: GigController?
+    var loginType = LoginType.signUp
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func signUpLoginTapped(_ sender: UISegmentedControl) {
