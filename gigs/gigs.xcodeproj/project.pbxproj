@@ -64,12 +64,12 @@
 		ABFCC53724216C930095B986 /* gigs */ = {
 			isa = PBXGroup;
 			children = (
-				ABFCC54F24216CE70095B986 /* View Controllers */,
-				ABFCC54E24216CD70095B986 /* Model Controller */,
+				ABFCC54624216CA30095B986 /* Info.plist */,
 				ABFCC54D24216CCF0095B986 /* Model */,
+				ABFCC54E24216CD70095B986 /* Model Controller */,
 				ABFCC54C24216CC30095B986 /* Resources */,
 				ABFCC55024216D000095B986 /* Story Boards */,
-				ABFCC54624216CA30095B986 /* Info.plist */,
+				ABFCC54F24216CE70095B986 /* View Controllers */,
 			);
 			path = gigs;
 			sourceTree = "<group>";
