@@ -14,7 +14,7 @@ enum LoginType {
 }
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var signUpLoginSegmented: UISegmentedControl!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -26,26 +26,65 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     @IBAction func signUpLoginTapped(_ sender: UISegmentedControl) {
+        
+        if sender.selectedSegmentIndex == 0 {
+            loginType = .signUp
+            signUpLogInButton.setTitle("Sign Up", for: .normal)
+        } else {
+            loginType = .signIn
+            signUpLogInButton.setTitle("Sign In", for: .normal)
+        }
     }
     
     
     @IBAction func signUpLoginButtonTapped(_ sender: UIButton) {
+        guard let gigController = gigController else { return }
+        
+        guard let username = userNameTextField.text,
+            username.isEmpty == false,
+            let password = passwordTextField.text,
+            password.isEmpty == false else { return }
+        
+        let user = User(username: username, password: password)
+        
+        switch loginType {
+        case .signUp:
+            gigController.signUp(with: user) { (error) in
+                guard error == nil else {
+                    print("Error signing up: \(error)")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    let alertController = UIAlertController(title: "Sign Up Successful", message: "Now please login", preferredStyle: .alert)
+                    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alertController.addAction(alertAction)
+                    
+                    self.present(alertController, animated: true) {
+                        self.loginType = .signIn
+                        
+                        self.signUpLoginSegmented
+                            .selectedSegmentIndex = 1
+                        self.signUpLogInButton.setTitle("Sign In", for: .normal)
+                    }
+                }
+                
+            }
+        case .signIn:
+            gigController.signIn(with: user) { (error) in
+                guard error == nil else {
+                    print("Error loggin in \(error!)")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
