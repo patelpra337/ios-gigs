@@ -15,6 +15,8 @@ enum HTTPMethod: String {
 }
 
 class GigController {
+    var gigs: [Gig] = []
+    
     var bearer: Bearer?
     
     private let baseURL = URL(string: "https://lambdagigapi.herokuapp.com/api")!

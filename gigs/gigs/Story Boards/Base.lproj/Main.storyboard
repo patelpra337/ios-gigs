@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Gigs Table View Controller-->
+        <!--Gigs-->
         <scene sceneID="jDB-ck-uyD">
             <objects>
                 <tableViewController id="vZv-5O-pNM" customClass="GigsTableViewController" customModule="gigs" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,6 +39,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Fsa-Pu-se8" kind="show" identifier="ShowGig" id="5Oo-9X-E42"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -46,8 +49,12 @@
                             <outlet property="delegate" destination="vZv-5O-pNM" id="dLG-YF-15E"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="bpp-cO-LRS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MRm-G8-vRW"/>
+                    <navigationItem key="navigationItem" title="Gigs" id="bpp-cO-LRS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MRm-G8-vRW">
+                            <connections>
+                                <segue destination="Fsa-Pu-se8" kind="show" identifier="AddGig" id="F5s-JC-SxK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="XSB-6M-A5L" kind="presentation" identifier="LoginViewModalSegue" id="038-78-szM"/>
@@ -119,7 +126,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EUx-xn-kVU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750.7246376811595" y="121.875"/>
+            <point key="canvasLocation" x="2280" y="-170"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gxP-eJ-3wo">
+            <objects>
+                <viewController id="Fsa-Pu-se8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hc8-Y1-THZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="j5g-Sb-mIb">
+                                <rect key="frame" x="0.0" y="226.5" width="414" height="216"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9z-I4-Ljo">
+                                <rect key="frame" x="16" y="198" width="382" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2fP-ga-ABy">
+                                <rect key="frame" x="16" y="156" width="382" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M4-NW-Zyy">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRi-75-yol">
+                                        <rect key="frame" x="79" y="0.0" width="303" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vn4-sh-574">
+                                <rect key="frame" x="16" y="450.5" width="382" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8nr-vx-K33">
+                                <rect key="frame" x="16" y="479" width="382" height="150"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="84S-7H-mNO"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5FW-Am-c7R" firstAttribute="trailing" secondItem="Vn4-sh-574" secondAttribute="trailing" constant="16" id="0xI-tc-all"/>
+                            <constraint firstItem="d9z-I4-Ljo" firstAttribute="top" secondItem="2fP-ga-ABy" secondAttribute="bottom" constant="8" id="5hM-FK-Wsc"/>
+                            <constraint firstItem="Vn4-sh-574" firstAttribute="top" secondItem="j5g-Sb-mIb" secondAttribute="bottom" constant="8" id="5u5-Vg-BKv"/>
+                            <constraint firstItem="Vn4-sh-574" firstAttribute="leading" secondItem="5FW-Am-c7R" secondAttribute="leading" constant="16" id="9Da-BM-Z5K"/>
+                            <constraint firstItem="5FW-Am-c7R" firstAttribute="trailing" secondItem="2fP-ga-ABy" secondAttribute="trailing" constant="16" id="EQt-mt-WFb"/>
+                            <constraint firstItem="j5g-Sb-mIb" firstAttribute="leading" secondItem="5FW-Am-c7R" secondAttribute="leading" id="HXm-7c-fGU"/>
+                            <constraint firstItem="d9z-I4-Ljo" firstAttribute="leading" secondItem="5FW-Am-c7R" secondAttribute="leading" constant="16" id="JDA-SZ-ack"/>
+                            <constraint firstItem="j5g-Sb-mIb" firstAttribute="top" secondItem="d9z-I4-Ljo" secondAttribute="bottom" constant="8" id="My3-Am-lYF"/>
+                            <constraint firstItem="j5g-Sb-mIb" firstAttribute="leading" secondItem="5FW-Am-c7R" secondAttribute="leading" id="Pkv-94-TeD"/>
+                            <constraint firstItem="8nr-vx-K33" firstAttribute="top" secondItem="Vn4-sh-574" secondAttribute="bottom" constant="8" id="YgS-Nb-WWx"/>
+                            <constraint firstItem="j5g-Sb-mIb" firstAttribute="top" secondItem="d9z-I4-Ljo" secondAttribute="bottom" constant="8" id="amM-eA-e4v"/>
+                            <constraint firstItem="5FW-Am-c7R" firstAttribute="trailing" secondItem="8nr-vx-K33" secondAttribute="trailing" constant="16" id="axf-9L-ea3"/>
+                            <constraint firstItem="2fP-ga-ABy" firstAttribute="top" secondItem="5FW-Am-c7R" secondAttribute="top" constant="16" id="bgh-pv-JKc"/>
+                            <constraint firstItem="8nr-vx-K33" firstAttribute="leading" secondItem="5FW-Am-c7R" secondAttribute="leading" constant="16" id="cn7-37-MdM"/>
+                            <constraint firstItem="j5g-Sb-mIb" firstAttribute="centerX" secondItem="d9z-I4-Ljo" secondAttribute="centerX" id="ge7-d8-KMh"/>
+                            <constraint firstItem="2fP-ga-ABy" firstAttribute="leading" secondItem="5FW-Am-c7R" secondAttribute="leading" constant="16" id="n8d-bv-LJD"/>
+                            <constraint firstItem="Vn4-sh-574" firstAttribute="top" secondItem="j5g-Sb-mIb" secondAttribute="bottom" constant="8" id="psD-Xg-uIo"/>
+                            <constraint firstItem="j5g-Sb-mIb" firstAttribute="trailing" secondItem="5FW-Am-c7R" secondAttribute="trailing" id="rvU-kT-gLO"/>
+                            <constraint firstItem="d9z-I4-Ljo" firstAttribute="top" secondItem="2fP-ga-ABy" secondAttribute="bottom" constant="8" id="uQK-3e-bAO"/>
+                            <constraint firstItem="8nr-vx-K33" firstAttribute="top" secondItem="Vn4-sh-574" secondAttribute="bottom" constant="8" id="vY9-HS-KEp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5FW-Am-c7R"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jg4-ML-m6H">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qCx-JL-68f"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KR4-Dz-gre" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2253.6231884057975" y="489.50892857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p9w-Yb-eAA">
@@ -140,4 +230,7 @@
             <point key="canvasLocation" x="269.56521739130437" y="121.875"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="F5s-JC-SxK"/>
+    </inferredMetricsTieBreakers>
 </document>

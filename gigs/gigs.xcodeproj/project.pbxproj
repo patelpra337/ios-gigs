@@ -17,6 +17,7 @@
 		ABFCC556242174560095B986 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC555242174560095B986 /* Bearer.swift */; };
 		ABFCC558242174840095B986 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC557242174840095B986 /* User.swift */; };
 		ABFCC55A242174C80095B986 /* GigController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC559242174C80095B986 /* GigController.swift */; };
+		ABFCC56C24244A900095B986 /* Gig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFCC56B24244A900095B986 /* Gig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		ABFCC555242174560095B986 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		ABFCC557242174840095B986 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ABFCC559242174C80095B986 /* GigController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigController.swift; sourceTree = "<group>"; };
+		ABFCC56B24244A900095B986 /* Gig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			children = (
 				ABFCC555242174560095B986 /* Bearer.swift */,
 				ABFCC557242174840095B986 /* User.swift */,
+				ABFCC56B24244A900095B986 /* Gig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				ABFCC556242174560095B986 /* Bearer.swift in Sources */,
 				ABFCC55A242174C80095B986 /* GigController.swift in Sources */,
 				ABFCC554242171750095B986 /* LoginViewController.swift in Sources */,
+				ABFCC56C24244A900095B986 /* Gig.swift in Sources */,
 				ABFCC558242174840095B986 /* User.swift in Sources */,
 				ABFCC53924216C930095B986 /* AppDelegate.swift in Sources */,
 				ABFCC53B24216C930095B986 /* SceneDelegate.swift in Sources */,
